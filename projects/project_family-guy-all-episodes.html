@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title> 
+    <link rel="stylesheet" href="../styles.css">
+    <script src='../assets/js/project_family-guy-all-episodes-script.js'></script>
+</head>
+<body>
+    <!-- This is the Header block -->
+    <header>
+        <div class='row'>
+            <div class='column div-header-name'>
+                <h1>Danail Kolev</h1>
+            </div>
+            <div class='column'>
+                <nav>
+                    <ul>
+                        <li><a href='../index.html'>Home</a></li>
+                        <li><a href='../pages/certificates.html'>Certificates</a></li>
+                        <li><a href='../pages/projects.html'>Projects</a></li>
+                        <li><a href='../pages/documentation.html'>Documentation</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="align-all-left">
+        <h2>WEB Family Guy All Episodes</h2>
+        <p><strong>Warning!</strong> Videos might trigger ads! <strong>Warning!</strong></p>
+
+        <h3>Select Season and Episode</h3>
+        <label for="season">Season:</label>
+        <select id="season" onchange="updateEpisodeOptions()">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <!-- Add more seasons as needed -->
+        </select>
+
+        <label for="episode">Episode:</label>
+        <select id="episode">
+            <!-- Episode options will be dynamically updated -->
+        </select>
+
+        <button onclick="updateVideoLink()">Watch Video</button>
+    </div>
+    <div class="center">
+        <br/>
+        <br/>
+        <iframe 
+            id="videoFrame"
+            style="
+            width: 800px;
+            height: 500px;
+            background-color: black;
+            "
+            src=""
+            class=""
+            allowfullscreen=""
+            title="video"
+            style="display: initial;">
+        </iframe>
+    </div>
+</body>
+</html>

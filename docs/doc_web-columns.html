@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title> 
+    <link rel="stylesheet" href="../styles.css">
+    <script src='../scripts.js'></script>
+</head>
+<body>
+    <!-- This is the Header block -->
+    <header>
+        <div class='row'>
+            <div class='column div-header-name'>
+                <h1>Danail Kolev</h1>
+            </div>
+            <div class='column'>
+                <nav>
+                    <ul>
+                        <li><a href='../index.html'>Home</a></li>
+                        <li><a href='../pages/certificates.html'>Certificates</a></li>
+                        <li><a href='../pages/projects.html'>Projects</a></li>
+                        <li><a href='../pages/documentation.html'>Documentation</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class='align-all-left'>
+        <h2>WEB How to make colmns</h2>
+        <p>The best way to make columns when making a website without some kind of a builder is to use "flex". This is if you need two equal columns. First you have to add class tags to the divs. We will use "row" and "column" tags to indicate which is which.</p>
+        <h3 style='margin-bottom: 0px;'>Example HTML:</h3>
+        <pre class='pre-code'>
+            <code class='language-html'>
+div class="row"
+  div class="column"
+  div class="column"
+div</code>
+        </pre>
+        <p>Then you add the CSS to a separate file or in a style tag or in a style attribute.</p>
+        <h3 style='margin-bottom: 0px;'>Example CSS:</h3>
+        <pre class='pre-code'>
+            <code class='language-css'>
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}</code>
+        </pre>
+        <p>And if you want to make more than two or unequal columns the HTML is similar but the CSS is something like this. In the HTML you just have to change the "column" classes to "left", "middle" and "right" or something like that.</p>
+        <h3 style='margin-bottom: 0px;'>Example CSS:</h3>
+        <pre class='pre-code'>
+            <code class='language-css'>
+.row {
+  float: left;
+}
+
+.left, .right {
+  width: 25%;
+}
+
+.middle {
+  width: 50%;
+}</code>
+        </pre>
+    </div>
+</body>
+</html>

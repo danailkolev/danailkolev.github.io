@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title> 
+    <link rel="stylesheet" href="../styles.css">
+    <script src='../assets/js/project_tmdb-script.js'></script>
+</head>
+<body>
+    <!-- This is the Header block -->
+    <header>
+        <div class='row'>
+            <div class='column div-header-name'>
+                <h1>Danail Kolev</h1>
+            </div>
+            <div class='column'>
+                <nav>
+                    <ul>
+                        <li><a href='../index.html'>Home</a></li>
+                        <li><a href='../pages/certificates.html'>Certificates</a></li>
+                        <li><a href='../pages/projects.html'>Projects</a></li>
+                        <li><a href='../pages/documentation.html'>Documentation</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="align-all-left">
+        <h1>Search for a Movie or Series</h1>
+    <input type="text" id="searchBar" placeholder="Search for a movie or series...">
+    <button onclick="searchMovie()">Search</button>
+
+    <ul id="results"></ul>
+
+    <br><br>
+    <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+</body>
+</html>
