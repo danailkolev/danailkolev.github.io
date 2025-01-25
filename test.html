@@ -9,24 +9,33 @@
   <h1>Extract H2 Example</h1>
   <script>
     // Fetching from a webpage (example assumes CORS is allowed)
-    fetch('https://cors-anywhere.herokuapp.com/https://www.themoviedb.org/search?query=hot%20chick') // Replace with the desired link
-      .then(response => response.text())
-      .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const h2Elements = doc.querySelectorAll('h2');
-        const h2Texts = Array.from(h2Elements).map(h2 => h2.textContent.trim());
+    fetch('https://cors-anywhere.herokuapp.com/https://www.themoviedb.org/search?query=hot%20chick', {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Accept': 'text/html'
+      }
+    })
+    .then(response => response.text())
+    .then(html => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const h2Elements = doc.querySelectorAll('h2');
+      const h2Texts = Array.from(h2Elements).map(h2 => h2.textContent.trim());
+  
+      const listContainer = document.createElement('ul');
+      h2Texts.forEach(text => {
+        const listItem = document.createElement('li');
+        listItem.textContent = text;
+        listContainer.appendChild(listItem);
+      });
 
-        const listContainer = document.createElement('ul');
-        h2Texts.forEach(text => {
-          const listItem = document.createElement('li');
-          listItem.textContent = text;
-          listContainer.appendChild(listItem);
-        });
-
-        document.body.appendChild(listContainer);
-      })
-      .catch(err => console.error('Error fetching page:', err));
+      document.body.appendChild(listContainer);
+    })
+    .catch(err => console.error('Error:', err));
   </script>
 </body>
 </html>
+
+
+
