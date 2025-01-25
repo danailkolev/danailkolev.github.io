@@ -9,7 +9,7 @@
   <h1>Extract H2 Example</h1>
   <script>
     // Fetching from a webpage (example assumes CORS is allowed)
-    fetch('https://www.themoviedb.org/search?query=hot%20chick') // Replace with the desired link
+    fetch('https://cors-anywhere.herokuapp.com/https://www.themoviedb.org/search?query=hot%20chick') // Replace with the desired link
       .then(response => response.text())
       .then(html => {
         const parser = new DOMParser();
