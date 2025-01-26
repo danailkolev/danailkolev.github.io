@@ -1,3 +1,22 @@
+function displayVideoInIframe(videoUrl) {
+        // Clear existing search results
+        const resultsUl = document.getElementById('results');
+        resultsUl.innerHTML = "";
+
+        // Create the iframe element
+        const iframe = document.createElement('iframe');
+        iframe.setAttribute('src', videoUrl);
+        iframe.setAttribute('width', '560'); // Adjust width as needed
+        iframe.setAttribute('height', '315'); // Adjust height as needed
+        iframe.setAttribute('frameborder', '0'); // Remove frame border
+        iframe.setAttribute('id', 'videoFrame'); // Set the id
+        iframe.setAttribute('allowfullscreen', ''); // Allow fullscreen
+
+        // Append the iframe to the container (replace results list)
+        const container = document.getElementById('iframe-container'); // Replace with your container ID
+        container.appendChild(iframe);
+    }
+      
     // Function to delete every other element in an array
     function deleteEveryOther(arr) {
          return arr.filter((_, index) => index % 2 === 0);
@@ -9,7 +28,13 @@
             while (resultsUl.firstChild) {
                 resultsUl.removeChild(resultsUl.firstChild);
             }
-            resultsUl.innerHTML = ""
+            resultsUl.innerHTML = "";
+
+            const existingIframe = document.getElementById('iframe-container');
+            while (existingIframe.firstChild) {
+                existingIframe.removeChild(existingIframe.firstChild);
+            }
+            existingIframe.innerHTML = "";
 
             // Get the search term from the search bar and encode it
             const searchTerm = document.getElementById('searchBar').value.toLowerCase();
@@ -32,6 +57,8 @@
 
                     // Delete every other link because they are doubled because of the title and poster
                     const refinedALinks = deleteEveryOther(aLinks).map(link => `https://vidlink.pro${link.replace(/^https:\/\/danailkolev.github.io/, '')}`);
+                    //const refinedALinks = deleteEveryOther(aLinks).map(link => `https://vidlink.pro${link.replace(/^file:\/\//, '')}`);
+
                     
                     // Get the list and populate it with the search results
                     const listContainer = document.getElementById('results');
@@ -39,6 +66,15 @@
                         // Create the list item and the link
                         const listItem = document.createElement('li');
                         const listItemText = document.createElement('a');
+
+                        // Add click event listener to the list item
+                        listItem.addEventListener('click', (event) => {
+                            // Prevent the default behavior
+                            event.preventDefault();
+                            
+                            // Handle click event to display video in iframe
+                            displayVideoInIframe(refinedALinks[index]);
+                        });
 
                         // Add the link and text to the inner "a" element
                         listItemText.href = refinedALinks[index];
