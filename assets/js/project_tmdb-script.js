@@ -31,7 +31,7 @@
                     const aLinks = Array.from(aLinkElements).map(a => a.href);
 
                     // Delete every other link because they are doubled because of the title and poster
-                    const refinedALinks = deleteEveryOther(aLinks).map(link => `https://vidlink.pro${link.replace(/^file:\/\//, '')}`);
+                    const refinedALinks = deleteEveryOther(aLinks).map(link => `https://vidlink.pro${link.replace(/^https:\/\/danailkolev.github.io/, '')}`);
                     
                     // Get the list and populate it with the search results
                     const listContainer = document.getElementById('results');
